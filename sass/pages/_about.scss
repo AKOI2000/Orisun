@@ -1,0 +1,111 @@
+#aboutpage{
+    img{
+        width: 100%;
+    }
+
+    .container{
+        margin: 6rem 13rem 0;
+    
+        @include respond(lg) {
+            margin: 7rem 4rem 0;
+        }
+    
+        @include respond(sm) {
+            margin: 6rem 2rem 0;
+        }
+    }
+
+
+    .about-header{
+        border-left: 4px solid $secondary-color;
+        height: min-content;
+        font-family: $font-display;
+        padding-left: 1.6rem;
+        
+        h6{
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: $secondary-color;
+        }
+
+        h2{
+            font-size: 3.2rem;
+            font-weight: 500;
+        }
+    }
+
+    .about-text{
+        padding: 1rem;
+        border-radius: 5px;
+        p{
+            font-size: 1.6rem;
+            line-height: 2;
+        }
+    }
+
+
+    .goals{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../../images/ben-weber-uj3OTNT0sRM-unsplash.webp');
+        background-size: cover;
+        background-position: center;
+        padding: 4rem 0;
+    }
+
+    .ethmology{
+        padding: 2rem 0 3rem;
+        margin: 1rem 0 4rem;
+        .about-text{
+            text-align: center;
+
+            @include respond (md) {
+                margin-top: 4rem;
+            }
+
+            img{
+                width: 40%;
+            }
+
+            p{
+                font-style: italic;
+                margin-bottom: .3rem;
+            }
+
+            h5{
+                font-size: 1.7rem;
+                font-weight: 500;
+                margin-bottom: 1.5rem;
+                font-family: $font-body;
+
+                span{
+                    font-weight: 700;
+                    margin-left: 1rem;
+                }
+            }
+
+            h4{
+                font-size: 1.8rem;
+                margin-top: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            ol{
+                font-size: 1.5rem;
+               li{
+                margin: .5rem 0 1.5rem;
+                font-weight: 500;
+               }
+
+               small{
+                font-style: italic;
+                font-size: 1.3rem;
+                font-weight: 300;
+               }
+            }
+        }
+    }
+}
+
+.origin, .goals, .ethmology{
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}

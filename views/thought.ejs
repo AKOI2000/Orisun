@@ -1,0 +1,72 @@
+<%- include('../partials/head.ejs') %>
+<body class="body">
+    <%- include('../partials/nav') %>
+
+    
+
+<div class="thought-container">
+
+
+    <div class="thought-box">
+        <h1 class="single-thought-headline margin-bottom1_5">
+            <%= post.title%>
+        </h1>
+        <div class="flex">
+            <p class="hero-date">
+                <%= post.to_char %>
+            </p>
+            <% if (locals.post.author) { %>
+                <p class="hero-date">By <%= post.author %></p>
+            <% } %>
+        </div>
+
+        <img src="<%= locals.post.imageurl ?  post.imageurl : "/images/marek-okon-WScpndZFrOM-unsplash.jpg" %>" alt="<%= post.imagealt %>" class="single-thought-img">
+        <p class="single-thought-paragraph"> 
+            <% if (locals.post.quotation) { %>
+                <span>"<%= post.quotation %>"</span>
+            <% } %>
+            <%= post.content%>
+        </p>
+        	
+    </div>
+
+
+    <div class="thought-box">
+        <div class="section-head margin-bottom-3">
+            <h4 class="section-head-header">More Thoughts</h4>
+            <hr class="hr">
+            <a href="/thoughts" class="section-head-button">See all <span>-></span></a>
+        </div>
+
+        <div class="grid grid-2by1">
+          <% if (locals.prev) { %>
+            <a href="/thoughts/<%= prev.id %>">
+                <div class="thought">
+                    <img src="<%= prev.imageurl %>" alt="<%= prev.imagealt %>"
+                        class="thought-img margin-bottom1_5">
+                    <h5 class="tag white margin-bottom_5">Personal</h5>
+                    <h3 class="thought-headline margin-bottom1"><%= prev.title %></h3>
+                    <p class="hero-date"><%= prev.to_char %></p>
+                </div>
+            </a>
+          <% } %>
+
+            <% if (locals.next) { %>
+                <a href="/thoughts/<%= next.id %>">
+                    <div class="thought">
+                        <img src="<%= next.imageurl %>" alt="<%= next.imagealt %>"
+                            class="thought-img margin-bottom1_5">
+                        <h5 class="tag white margin-bottom_5">Personal</h5>
+                        <h3 class="thought-headline margin-bottom1"><%= next.title %></h3>
+                        <p class="hero-date"><%= next.to_char %></p>
+                    </div>
+                </a>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+
+    <%- include('../partials/footer') %>
+</body>
+</html>

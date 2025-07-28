@@ -1,0 +1,65 @@
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+
+    <section id="thoughts">
+        <div class="container">
+            <div class="section-head margin-bottom-7">
+                <h4 class="section-head-header">All of my Thoughts</h4>
+                <hr>
+                <h4 class="section-head-sub">Do not panic!</h4>
+            </div>
+
+            <div class="grid grid-4by2">
+               <% posts.forEach(post => { %>
+                <a href="/thoughts/<%= post.id %>">
+                    <div class="thought">
+                        <img src="<%= post.imageurl %>" alt="<%= post.imagealt %>"
+                            class="thought-img margin-bottom1_5">
+                        <h5 class="tag white margin-bottom_5">Personal</h5>
+                        <h3 class="thought-headline margin-bottom1"><%= post.title %></h3>
+                        <p class="hero-date"><%= post.to_char %></p>
+
+                    </div>
+                </a>
+               <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-head margin-bottom-7">
+                <h4 class="section-head-header">About</h4>
+                <hr>
+                <a href="#" class="section-head-button">See Portfolio <span>-></span></a>
+            </div>
+
+            <div class="grid grid-1by1">
+                <a href="/about">
+                    <div class="aboutMe">
+                        <img src="/images/Orisun 3.png" alt="Orisun" class="about-img">
+                        <div class="black-overlay"></div>
+                        <div class="about-text">
+                            <h3 class="about-headline">How we came about...</h3>
+                            <p class="about-paragraph">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                Sapiente illum sint reprehenderit sed asperiores distinctio</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="newsletter">
+                    <h5 class="newsletter-header-sub">Never miss my thoughts</h5>
+                    <h3 class="newsletter-header-main">Subscribe to hear my thoughts</h3>
+                    <form action="/subscribe" method="post">
+                        <input type="email" name="email" id="email" placeholder="example@email.com">
+                        <input type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>

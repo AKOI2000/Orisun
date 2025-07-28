@@ -1,0 +1,60 @@
+<% if (locals.posts.length > 1) { %>
+
+
+
+    <% if (locals.posts.length >= 3) { %>
+        <% for (let i=1; i < 3 ; i++) { %>
+            <a href="/thoughts/<%= posts[i].id %>" class="hero-sub hero">
+                <img src="<%= locals.posts[i] ?  posts[i].imageurl : "
+                    /images/marek-okon-WScpndZFrOM-unsplash.jpg" %>" alt="<%= posts[i].imagealt %>"
+                    class="hero-sub__img">
+                    <div class="hero-text">
+                        <h5 class="tag tag-pad red margin-bottom1">Personal</h5>
+                        <h3 class="hero-sub__headline margin-bottom1">
+                            <%= posts[i].title %>
+                        </h3>
+                        <p class="hero-date">
+                            <%= posts[i].date %>
+                        </p>
+                    </div>
+            </a>
+            <% } %>
+
+                <% } else { %>
+                    <a href="/thoughts/<%= posts[1].id %>" class="hero-sub hero">
+                        <img src="<%= locals.posts[1] ?  posts[1].imageurl : "
+                            /images/marek-okon-WScpndZFrOM-unsplash.jpg" %>" alt="<%= posts[1].imagealt %>"
+                            class="hero-sub__img">
+                            <div class="hero-text">
+                                <h5 class="tag tag-pad red margin-bottom1">Personal</h5>
+                                <h3 class="hero-sub__headline margin-bottom1">
+                                    <%= posts[1].title %>
+                                </h3>
+                                <p class="hero-date">
+                                    <%= posts[1].date %>
+                                </p>
+                            </div>
+                    </a>
+
+                    <% } %>
+
+
+<% } %>
+
+
+<% if (locals.posts.length > 1) { %>
+    <a href="/thoughts/<%= posts[1].id %>" class="hero-sub hero">
+        <img src="<%= locals.posts[1] ?  posts[1].imageurl : "
+            /images/marek-okon-WScpndZFrOM-unsplash.jpg" %>" alt="<%= posts[1].imagealt %>"
+            class="hero-sub__img">
+            <div class="hero-text">
+                <h5 class="tag tag-pad red margin-bottom1">Personal</h5>
+                <h3 class="hero-sub__headline margin-bottom1">
+                    <%= posts[1].title %>
+                </h3>
+                <p class="hero-date">
+                    <%= posts[1].date %>
+                </p>
+            </div>
+    </a>
+<% } %>

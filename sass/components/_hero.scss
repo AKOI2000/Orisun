@@ -1,0 +1,16 @@
+#hero{
+    .container{
+        background-color: $primary-color;
+
+        .hero-main__img{
+            width: 100%;
+        }
+    
+        .hero-sub__img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+ 
+}

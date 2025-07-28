@@ -1,0 +1,71 @@
+<%- include('../partials/head.ejs') %>
+<body class="body">
+
+
+    <div class="dashboard-grid grid" id="function">
+        <div id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="/images/Orisun.png" alt="">
+                </div>
+
+                <button class="hamburger" id="toggleBtn">&#9776;</button>
+            </div>
+
+            <button class="sidebar-button" onclick="showSection('createPost')">Create Post</button>
+            <button class="sidebar-button" onclick="showSection('allPosts')">All posts</button>
+            <a href="/" class="sidebar-button" target="_blank">Go to Orisun</a>
+            <a href="/or-admin/register" class="sidebar-button" target="_blank">Give someone else access</a>
+
+
+            <form action="" method="get" class="search">
+                <input type="text" name="Search" id="search" placeholder="Search" autocomplete="off" required>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+
+        <div class="main">
+            <div class="dashboard-container">
+                <div class="createPost content-section active" id="createPost">
+                    <form action="/or-admin/createPost" method="post" class="createPost">
+                        <input type="text" name="title" id="headline" class="headline" placeholder="Headline here...">
+                        <textarea name="content" id="paragraph" class="paragraph" placeholder="Paragraph here .."></textarea>
+                        <input type="text" name="quotation" id="quotation" class="quotation" placeholder="Quotation here ..">
+                        <input type="text" name="author" id="author" class="author" placeholder="Author here ..">
+                        <input type="text" name="imageURL" id="imageURL" class="imageURL" placeholder="Image URL here ..">
+                        <input type="text" name="imageAlt" id="image-alt" class="image-alt" placeholder="Image Description Here ..">
+                        <input type="submit" value="Create Post" id="submit" class="submit">
+                    </form>
+                </div>
+
+                <div id="allPosts" class="allPosts content-section">
+                   <% posts.forEach(post => { %>
+                    <div class="post">
+                        <div class="postInfo">
+                            <h3 class="single-thought-headline"> <%= post.title %> </h3>
+                            <p class="single-thought-paragraph text" id="text"> <%= post.content %> </p>
+                        </div>
+
+                        <div class="post-button">
+                            <form action="or-admin/editPost/<%= post.id %>" method="get">
+                                <input type="submit" value="Edit">
+                            </form>
+
+                            <form action="/or-admin/deletePost/<%= post.id %>" method="post">
+                                <input type="submit" value="Delete">
+                            </form>
+                        </div>
+                    </div>
+                   <% }); %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://kit.fontawesome.com/9f49353139.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/vanilla.js"></script>
+</body>
+</html>

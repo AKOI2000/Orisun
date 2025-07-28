@@ -1,0 +1,145 @@
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/nav.ejs') %>
+
+
+
+
+            <section id="hero">
+                <div class="container">
+                    <div class="grid grid-2by2">
+                        <% if (locals.posts[0]) { %>
+                            <a href="/thoughts/<%= posts[0].id %>" class="hero-main hero">
+                                <img src="<%= locals.posts[0] ?  posts[0].imageurl : " /images/marek-okon-WScpndZFrOM-unsplash.jpg" %>"
+                                alt="<%= posts[0].imagealt %>"
+                                class="hero-main__img">
+                                <div class="black-overlay"></div>
+                                <div class="hero-text">
+                                    <h5 class="tag tag-pad red margin-bottom1">Personal</h5>
+                                    <h3 class="hero-main__headline margin-bottom1">
+                                        <%= posts[0].title %>
+                                    </h3>
+                                    <p class="hero-date">
+                                        <%= posts[0].to_char %>
+                                    </p>
+                                </div>
+                            </a>
+                        <% } %>
+
+                        <% if (locals.postsub1) { %>
+                            <a href="/thoughts/<%= postsub1.id %>" class="hero-sub hero">
+                                <img src="<%= locals.postsub1 ?  postsub1.imageurl : " /images/marek-okon-WScpndZFrOM-unsplash.jpg" %>"
+                                alt="<%= postsub1.imagealt %>"
+                                class="hero-sub__img">
+                                <div class="black-overlay"></div>
+                                <div class="hero-text">
+                                    <h5 class="tag tag-pad red margin-bottom1">Personal</h5>
+                                    <h3 class="hero-sub__headline margin-bottom1">
+                                        <%= postsub1.title %>
+                                    </h3>
+                                    <p class="hero-date">
+                                        <%= postsub1.to_char %>
+                                    </p>
+                                </div>
+                            </a>
+                        <% } %>
+
+                        <% if (locals.postsub2) { %>
+                            <a href="/thoughts/<%= postsub2.id %>" class="hero-sub hero">
+                                <img src="<%= locals.postsub2 ?  postsub2.imageurl : " /images/marek-okon-WScpndZFrOM-unsplash.jpg" %>"
+                                alt="<%= postsub2.imagealt %>"
+                                class="hero-sub__img">
+                                <div class="black-overlay"></div>
+                                <div class="hero-text">
+                                    <h5 class="tag tag-pad red margin-bottom1">Personal</h5>
+                                    <h3 class="hero-sub__headline margin-bottom1">
+                                        <%= postsub2.title %>
+                                    </h3>
+                                    <p class="hero-date">
+                                        <%= postsub2.to_char %>
+                                    </p>
+                                </div>
+                            </a>
+                        <% } %>
+
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="allThoughts">
+                <div class="container">
+                    <div class="section-head margin-bottom-7">
+                        <h4 class="section-head-header">Thoughts</h4>
+                        <hr>
+                        <a href="/thoughts" class="section-head-button">See all <span>-></span></a>
+                    </div>
+
+                    <div class="grid grid-4by2">
+                        <% posts.forEach(post=> { %>
+                            <a href="/thoughts/<%= post.id %>">
+                                <div class="thought">
+                                    <img src="<%= post.imageurl %>" alt="<%= post.imagealt %>"
+                                        class="thought-img margin-bottom1_5">
+                                    <!-- <h5 class="tag white margin-bottom_5">Personal</h5> -->
+                                    <h3 class="thought-headline margin-bottom1">
+                                        <%= post.title %>
+                                    </h3>
+                                    <p class="hero-date">
+                                        <%= post.to_char %>
+                                    </p>
+
+                                </div>
+                            </a>
+                            <% }); %>
+                    </div>
+
+                </div>
+                </div>
+            </section>
+
+
+            <section id="about">
+                <div class="container">
+                    <div class="section-head margin-bottom-7">
+                        <h4 class="section-head-header">About</h4>
+                        <hr>
+                        <a href="#" class="section-head-button">See Portfolio <span>-></span></a>
+                    </div>
+
+                    <div class="grid grid-1by1">
+                        <a href="/about">
+                            <div class="aboutMe">
+                                <img src="/images/Orisun 3.png" alt="Orisun" class="about-img">
+                                <div class="black-overlay"></div>
+                                <div class="about-text">
+                                    <h3 class="about-headline">How we came about...</h3>
+                                    <p class="about-paragraph">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        Sapiente illum sint reprehenderit sed asperiores distinctio</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="newsletter">
+                            <h5 class="newsletter-header-sub">Never miss my thoughts</h5>
+                            <h3 class="newsletter-header-main">Subscribe to hear my thoughts</h3>
+                            <form action="/subscribe" method="post">
+                                <input type="email" name="email" id="email" placeholder="example@email.com">
+                                <input type="submit" value="Subscribe">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+            <%- include('../partials/footer') %>
+    </body>
+
+    </html>
