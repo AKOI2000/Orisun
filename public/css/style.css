@@ -708,16 +708,16 @@ h1, h2, h3, h4 {
   width: 100%;
 }
 #aboutpage .container {
-  margin: 6rem 13rem 0;
+  margin: 6rem auto 2rem;
 }
 @media (max-width: 1024px) {
   #aboutpage .container {
-    margin: 7rem 4rem 0;
+    margin: 7rem auto 2rem;
   }
 }
 @media (max-width: 480px) {
   #aboutpage .container {
-    margin: 6rem 2rem 0;
+    margin: 6rem auto 2rem;
   }
 }
 #aboutpage .about-header {
