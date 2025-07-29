@@ -4,14 +4,14 @@
     }
 
     .container{
-        margin: 6rem 13rem 0;
+        margin: 6rem auto 0;
     
         @include respond(lg) {
-            margin: 7rem 4rem 0;
+            margin: 7rem auto 0;
         }
     
         @include respond(sm) {
-            margin: 6rem 2rem 0;
+            margin: 6rem auto 0;
         }
     }
 
