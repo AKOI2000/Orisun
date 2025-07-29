@@ -473,7 +473,7 @@ h1, h2, h3, h4 {
   }
   .menu-container input:checked ~ .menu {
     opacity: 1;
-    transform: translateY(400px);
+    transform: translateY(375px);
     z-index: 2;
   }
 }
@@ -1176,16 +1176,16 @@ h1, h2, h3, h4 {
 }
 
 .container {
-  margin: 6rem 13rem 2rem;
+  margin: 6rem auto 2rem;
 }
 @media (max-width: 1024px) {
   .container {
-    margin: 7rem 8rem 2rem;
+    margin: 7rem auto 2rem;
   }
 }
 @media (max-width: 480px) {
   .container {
-    margin: 6rem 2rem 2rem;
+    margin: 6rem auto 2rem;
   }
 }
 

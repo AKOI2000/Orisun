@@ -35,10 +35,6 @@ app.use(express.static("public"));
 const users = [];
 let isAuthenticated = false;
 
-
-
-
-
 function requireAuth(req, res, next) {
     if (isAuthenticated) {
      next()
@@ -164,9 +160,10 @@ app.get('/thoughts', async(req, res)=>{
     })
 })
 
-app.get("/thoughts/:id", (req, res)=>{
+app.get("/thoughts/:id", async (req, res)=>{
     const id = parseInt(req.params.id);
-
+    const result = await db.query("SELECT *, TO_CHAR(date, 'DD Month YYYY') FROM posts WHERE id = $1", [id]);
+    posts = result.rows;
     const findStory = posts.find(post => post.id === id);
     const findIndex = posts.findIndex(post => post.id === id);
     const prev = posts[findIndex - 1];
