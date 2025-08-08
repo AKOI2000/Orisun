@@ -14,7 +14,7 @@ const sql = postgres(connectionString)
 
 
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const saltRounds = 10;
 const app = express();
 dotenv.config();
@@ -162,12 +162,14 @@ app.get('/thoughts', async(req, res)=>{
 
 app.get("/thoughts/:id", async (req, res)=>{
     const id = parseInt(req.params.id);
-    const result = await db.query("SELECT *, TO_CHAR(date, 'DD Month YYYY') FROM posts WHERE id = $1", [id]);
+    const result = await db.query("SELECT *, TO_CHAR(date, 'DD Month YYYY') FROM posts ORDER BY id DESC;");
     posts = result.rows;
     const findStory = posts.find(post => post.id === id);
     const findIndex = posts.findIndex(post => post.id === id);
-    const prev = posts[findIndex - 1];
-    const next = posts[findIndex + 1];
+    let prev = posts[findIndex - 1];
+    let next = posts[findIndex + 1];
+
+    console.log(prev, next);
 
 
     res.render('thought.ejs', {
