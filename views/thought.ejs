@@ -25,7 +25,8 @@
             <% if (locals.post.quotation) { %>
                 <span>"<%= post.quotation %>"</span>
             <% } %>
-            <%= post.content%>
+            <!-- <%= post.content%> -->
+            <%- post.content.replace(/\n\s*\n/g, '</p><p class="single-thought-paragraph">').replace(/\n/g, '<br>') %>
         </p>
         	
     </div>
