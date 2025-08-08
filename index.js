@@ -14,7 +14,7 @@ const sql = postgres(connectionString)
 
 
 
-const port = 3000;
+const port = process.env.PORT;
 const saltRounds = 10;
 const app = express();
 dotenv.config();
