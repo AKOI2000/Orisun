@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String   @unique
+  excerpt   String?
+  coverImage String?
+  coverImagePublicId String?
+  coverImageResourceType String?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  blocks    Block[]
+  comments  Comment[]
+  likes     Like[]
+}
+
+model Block {
+  id        String    @id @default(cuid())
+  type      BlockType
+  order     Int
+  content   Json
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId String
+
+  @@index([postId, order])
+}
+
+enum BlockType {
+  paragraph
+  quote
+  image
+  music
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  content   String
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId String
+
+  @@index([postId, approved])
+}
+
+model Like {
+  id          String   @id @default(cuid())
+  fingerprint String
+  createdAt   DateTime @default(now())
+
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId String
+
+  // one like per visitor per post
+  @@unique([postId, fingerprint])
+}

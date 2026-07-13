@@ -1,0 +1,16 @@
+@use "../utilities/mixin" as *;
+@use "../base/reset" as *;
+
+
+.site-shell{
+    position: relative;
+    background: var(--white-smoke);
+    // overflow: auto;
+    &__main{
+        // min-height: 300vh;
+        // display: flex;
+        // flex-direction: column;
+    }
+}
+
+

@@ -1,0 +1,49 @@
+@use "../utilities/mixin" as *;
+
+.container {
+    padding: 5rem 7rem;
+  
+    @include respond(lg) {
+      padding: 5rem 5rem;
+    }
+  
+    @include respond(mdl) {
+      padding: 5rem 4rem;
+    }
+  
+    @include respond(mds) {
+      padding: 5rem 3rem;
+    }
+  
+    @include respond(sm) {
+      padding: 5rem 3rem;
+    }
+  
+    @include respond(xs) {
+      padding: 5rem 2rem;
+    }
+}
+
+.site-nav{
+    margin: 0 7rem;
+  
+    @include respond(lg) {
+      margin: 0 5rem;
+    }
+  
+    @include respond(mdl) {
+      margin: 0 4rem;
+    }
+  
+    @include respond(mds) {
+      margin: 0 3rem;
+    }
+  
+    @include respond(sm) {
+      margin: 0 3rem;
+    }
+  
+    @include respond(xs) {
+      margin: 0 2rem;
+    }
+}

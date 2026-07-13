@@ -1,0 +1,140 @@
+@use "../../base/reset" as *;
+@use "../../utilities/mixin" as *;
+
+.thought__like {
+  display: flex;
+  justify-content: center;
+  margin: 4rem 0;
+}
+ 
+.like-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  border: 1px solid var(--light-grey);
+  border-radius: 999px;
+  background: var(--background);
+  color: var(--foreground-light);
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+ 
+  svg {
+    font-size: 1.9rem;
+  }
+ 
+  &:hover {
+    border-color: var(--foreground);
+  }
+ 
+  &--active {
+    color: var(--foreground);
+    border-color: var(--foreground);
+  }
+}
+ 
+.thought__comments {
+  margin-top: 6rem;
+  padding-top: 3.2rem;
+  border-top: 1px solid var(--light-grey);
+ 
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2.4rem;
+  }
+}
+ 
+.comment-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+ 
+  &__empty {
+    color: var(--grey);
+    margin-bottom: 3.2rem;
+  }
+ 
+  &__item {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--light-grey);
+  }
+ 
+  &__meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+ 
+  &__name {
+    font-weight: 600;
+    font-size: 1.4rem;
+  }
+ 
+  &__date {
+    font-size: 1.2rem;
+    color: var(--grey);
+  }
+ 
+  &__content {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--foreground-light);
+  }
+}
+ 
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+ 
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+ 
+  input,
+  textarea {
+    padding: 1rem 1.4rem;
+    border: 1px solid var(--light-grey);
+    border-radius: 1rem;
+    font-family: inherit;
+    font-size: 1.4rem;
+    color: var(--foreground);
+    background: var(--background);
+ 
+    &:focus {
+      outline: 2px solid var(--foreground);
+      outline-offset: 1px;
+    }
+  }
+ 
+  button[type='submit'] {
+    align-self: flex-start;
+    padding: 1rem 2.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--foreground);
+    background: var(--foreground);
+    color: var(--background);
+    font-size: 1.4rem;
+    font-weight: 500;
+    cursor: pointer;
+ 
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+ 
+  &__error {
+    font-size: 1.2rem;
+    color: #b91c1c;
+  }
+}

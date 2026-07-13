@@ -1,0 +1,60 @@
+@use "../utilities/mixin" as *;
+@use "../base/reset" as *;
+
+.thought-card {
+  display: block;
+  break-inside: avoid;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  color: inherit;
+
+  &__img-box {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transform: scale(1.05);
+      transition: transform 0.5s ease;
+    }
+  }
+
+  // Whole card is the hover trigger, not just the image box, since the
+  // entire card is one clickable Link.
+  &:hover &__img-box img {
+    transform: scale(1);
+  }
+
+  &__info {
+    margin-top: 1.2rem;
+
+    .date {
+      font-size: 1.2rem;
+      color: var(--grey);
+      // font-weight: 300;
+      // margin-bottom: 0.4rem;
+    }
+
+    h5 {
+      // font-size: 1.8rem;
+      font-weight: 600;
+      // margin-bottom: 0.6rem;
+    }
+
+    .desc {
+      font-size: 1.5rem;
+      color: var(--darker-grey);
+      font-weight: 300;
+
+      // Clamp to 3 lines regardless of excerpt length or column width -
+      // adapts automatically as the masonry grid reflows across
+      // breakpoints, which a fixed character slice can't do.
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+}

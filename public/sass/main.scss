@@ -1,0 +1,34 @@
+@use "./utilities/variables";
+@use "./utilities/mixin";
+@use "./utilities/utilities";
+
+@use "./layout/container";
+@use "./layout/grid";
+@use "./layout/dashboard-layout";
+@use "./layout/public-layout.scss";
+
+@use "./base/reset";
+@use "./base/typography";
+
+@use "./sections/about/about-ethmology";
+@use "./sections/about/about-goals";
+@use "./sections/about/about-hero";
+
+@use "./sections/dashboard/dashboard_post";
+
+@use "./sections/thoughts/thoughts-layout";
+@use "./sections/thoughts/thought";
+@use "./sections/thoughts/likes-comment";
+
+@use "./component/modal";
+@use "./component/footer";
+@use "./component/navbar";
+@use "./component/btn";
+@use "./component/home-hero";
+@use "./component/home-featured";
+@use "./component/about-section";
+@use "./component/thought-card";
+@use "./component/horizontal-thought-card";
+
+// @use "";
+// @use "";

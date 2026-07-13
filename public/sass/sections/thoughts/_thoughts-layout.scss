@@ -1,0 +1,81 @@
+@use "../../base/reset" as *;
+@use "../../utilities/mixin" as *;
+
+.thoughts {
+  column-count: 3;
+  column-gap: 2rem;
+
+  @include respond(md) {
+    column-count: 2;
+  }
+
+  @include respond(mds) {
+    column-count: 1;
+  }
+}
+
+.thoughts-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 4rem 0;
+
+  &__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--foreground-light);
+    text-decoration: none;
+    transition:
+      background 0.15s ease,
+      color 0.15s ease;
+
+    &:hover {
+      background: var(--white-smoke);
+    }
+
+    &--active {
+      background: var(--foreground);
+      color: var(--background);
+
+      &:hover {
+        background: var(--foreground);
+      }
+    }
+  }
+
+  &__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    color: var(--foreground);
+    text-decoration: none;
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: var(--white-smoke);
+    }
+
+    &--disabled {
+      color: var(--light-grey);
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  &__gap {
+    color: var(--grey);
+    font-size: 1.4rem;
+    padding: 0 0.4rem;
+  }
+}

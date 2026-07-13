@@ -1,0 +1,30 @@
+@use "../../utilities/mixin" as *;
+@use "../../base/reset" as *;
+
+.goals {
+  position: relative;
+
+  img {
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  .section-header,
+  .about-text {
+    z-index: 2;
+    color: var(--whiter-smoke);
+  }
+
+  .about-text{
+    background-color: var(--color-red);
+    padding: 2rem;
+  }
+
+  
+}
