@@ -29,7 +29,7 @@ The name reflects what this site is—a place where ideas begin, evolve, and are
 - **Styling:** SCSS Modules
 - **Animations:** Framer Motion
 - **UI & Interaction:** dnd-kit
-- **Language:** TypeScript
+- **Language:** Javascript
 
 ## Running locally
 
