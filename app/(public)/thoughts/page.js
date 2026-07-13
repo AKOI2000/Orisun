@@ -3,6 +3,9 @@ import ThoughtsLayout from "@/app/_components/ThoughtsLayout";
 export const metadata = {
   title: "Thoughts",
   description: "All entries from Orisun, newest first.",
+  alternates: {
+    canonical: "/thoughts",
+  },
 };
 
 async function page({ searchParams }) {

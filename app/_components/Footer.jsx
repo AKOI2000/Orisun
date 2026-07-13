@@ -33,13 +33,16 @@ export default function Footer() {
             </div>
             <div className="footer-nav__nav">
               <h5 className="head">Follow me</h5>
-              <a href="https://www.instagram.com/olayinkaalausa/">
+              <a
+                href="https://www.instagram.com/olayinkaalausa/"
+                target="_blank"
+              >
                 Instagram <FaInstagram />
               </a>
-              <a href="https://www.linkedin.com/in/codealausa">
+              <a href="https://www.linkedin.com/in/codealausa" target="_blank">
                 LinkedIn <FaLinkedinIn />
               </a>
-              <a href="https://github.com/AKOI2000">
+              <a href="https://github.com/AKOI2000" target="_blank">
                 Github <FaGithub />
               </a>
             </div>
@@ -48,7 +51,7 @@ export default function Footer() {
 
         <Image
           alt="orisun"
-          src="/orisun.png"
+          src="/Orisun.png"
           width={100}
           height={100}
           sizes="(max-width: 763px) 100vw, (max-width: 1200px) 50vw, 33vw"

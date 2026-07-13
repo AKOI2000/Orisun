@@ -5,6 +5,9 @@ import Goals from "@/app/_components/Goals";
 export const metadata = {
   title: "About",
   description: "A little about who writes Orisun and why.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 function page() {

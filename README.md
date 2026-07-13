@@ -6,7 +6,7 @@ Orisun is my personal corner of the internet—a collection of thoughts, reflect
 
 Some posts are about software, building products, and technology. Others are about life, creativity, observations, or advice worth sharing. There isn't a strict theme here—just things I think are worth writing down.
 
-**Live:** https://orisun.vercel.app
+**Live:** https://orisunn.vercel.app
 
 ## What you'll find
 

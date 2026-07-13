@@ -13,13 +13,49 @@ export async function generateMetadata({ params }) {
   const post = await getPostBySlug(slug);
 
   if (!post || !post.published) {
-    return { title: "Not found" };
+    return {
+      title: "Not Found",
+    };
   }
 
   return {
     title: post.title,
-    description: post.excerpt || undefined,
-    openGraph: post.coverImage ? { images: [post.coverImage] } : undefined,
+
+    description: post.excerpt || "A thought from Orisun.",
+
+    alternates: {
+      canonical: `/thoughts/${post.slug}`,
+    },
+
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || "A thought from Orisun.",
+      url: `https://orisunn.vercel.app/thoughts/${post.slug}`,
+      type: "article",
+
+      publishedTime: post.createdAt,
+
+      images: post.coverImage
+        ? [
+            {
+              url: post.coverImage,
+              alt: post.title,
+            },
+          ]
+        : [
+            {
+              url: "/Orisun3.png",
+              alt: "Orisun",
+            },
+          ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt || "A thought from Orisun.",
+      images: post.coverImage ? [post.coverImage] : ["/Orisun3.png"],
+    },
   };
 }
 
