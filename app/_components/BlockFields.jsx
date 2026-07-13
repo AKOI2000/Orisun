@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { uploadFile, deleteFile } from '../_lib/block-helpers';
+import { useState } from "react";
+import { uploadFile, deleteFile } from "../_lib/block-helpers";
+import Image from "next/image";
 
 export default function BlockFields({ block, onChange }) {
   const content = block.content;
@@ -25,13 +26,13 @@ export default function BlockFields({ block, onChange }) {
         deleteFile(previousPublicId, previousResourceType);
       }
     } catch {
-      alert('Upload failed. Try again.');
+      alert("Upload failed. Try again.");
     } finally {
       setUploading(false);
     }
   }
 
-  if (block.type === 'paragraph') {
+  if (block.type === "paragraph") {
     return (
       <textarea
         rows={4}
@@ -42,7 +43,7 @@ export default function BlockFields({ block, onChange }) {
     );
   }
 
-  if (block.type === 'quote') {
+  if (block.type === "quote") {
     return (
       <>
         <textarea
@@ -55,18 +56,29 @@ export default function BlockFields({ block, onChange }) {
           type="text"
           placeholder="Attribution (optional)"
           value={content.attribution}
-          onChange={(e) => onChange({ ...content, attribution: e.target.value })}
+          onChange={(e) =>
+            onChange({ ...content, attribution: e.target.value })
+          }
         />
       </>
     );
   }
 
-  if (block.type === 'image') {
+  if (block.type === "image") {
     return (
       <>
         <input type="file" accept="image/*" onChange={handleFileChange} />
         {uploading && <span>Uploading…</span>}
-        {content.url && <img src={content.url} alt={content.alt || ''} style={{ maxWidth: '200px' }} />}
+        {content.url && (
+          <Image
+            src={content.url}
+            alt={content.alt || ""}
+            width={400}
+            height={400}
+            sizes="(max-width: 763px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{ maxWidth: "200px" }}
+          />
+        )}
         <input
           type="text"
           placeholder="Caption (optional)"
@@ -83,7 +95,7 @@ export default function BlockFields({ block, onChange }) {
     );
   }
 
-  if (block.type === 'music') {
+  if (block.type === "music") {
     return (
       <>
         <input type="file" accept="audio/*" onChange={handleFileChange} />

@@ -7,6 +7,7 @@ import LikeButton from "@/app/_components/LikeButton";
 import CommentList from "@/app/_components/CommentList";
 import CommentForm from "@/app/_components/CommentForm";
 import MorePost from "@/app/_components/MorePost";
+import Image from "next/image";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -97,7 +98,13 @@ export default async function ThoughtPage({ params }) {
 
       {post.coverImage && (
         <div className="thought__cover">
-          <img src={post.coverImage} alt="" />
+          <Image
+            src={post.coverImage}
+            alt={post.title}
+            height={1000}
+            width={1000}
+            sizes="(max-width: 763px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
         </div>
       )}
 
