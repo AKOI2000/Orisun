@@ -14,13 +14,13 @@ export default function CommentList({ comments }) {
           <div className="comment-list__meta">
             <span className="comment-list__name">{comment.name}</span>
             <time className="comment-list__date">
-              {/* {new Date(comment.createdAt).toLocaleDateString("en-US", {
+              {new Date(comment.createdAt).toLocaleDateString("en-US", {
                 month: "short",
                 day: "numeric",
                 year: "numeric",
-              })} */}
+              })}
 
-              {format(comment.createdAt, "mmm d yyyy")}
+              {/* {format(comment.createdAt, "mmm d yyyy")} */}
             </time>
           </div>
           <p className="comment-list__content">{comment.content}</p>
