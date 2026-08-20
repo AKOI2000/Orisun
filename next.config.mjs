@@ -1,5 +1,10 @@
+import path from "path";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {
+    root: path.join(process.cwd()),
+  },
   experimental: {
     serverActions: {
       bodySizeLimit: "100mb",
@@ -7,7 +12,7 @@ const nextConfig = {
       timeout: 120,
     },
   },
-  serverExternalPackages: ["cloudinary", "@supabase/ssr"], // ← added @supabase/ssr
+  serverExternalPackages: ["cloudinary"],
   httpAgentOptions: {
     keepAlive: true,
   },
