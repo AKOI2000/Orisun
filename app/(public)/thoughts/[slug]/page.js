@@ -21,12 +21,12 @@ export async function generateMetadata({ params }) {
 
   if (!post || !post.published) {
     return {
-      title: "Thought Not Found | Orisun",
+      title: "Thought Not Found",
     };
   }
 
   return {
-    title: `${post.title} | Orisun`,
+    title: `${post.title}`,
     description: post.excerpt || "A thought from Orisun.",
     alternates: {
       canonical: `/thoughts/${post.slug}`,
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: `${post.title} | Orisun`,
       description: post.excerpt || "A thought from Orisun.",
-      images: post.coverImage ? [post.coverImage] : undefined,
+      images: post.coverImage ? [post.coverImage] : ["/Orisun2.png"],
     },
   };
 }

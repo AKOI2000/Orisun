@@ -1,7 +1,7 @@
 import ThoughtsLayout from "@/app/_components/ThoughtsLayout";
 
 export const metadata = {
-  title: "Thoughts | Orisun",
+  title: "Thoughts",
   description: "All entries from Orisun, newest first.",
   alternates: {
     canonical: "/thoughts",
