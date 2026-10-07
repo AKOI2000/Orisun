@@ -8,7 +8,7 @@ function AboutSection() {
       <div className="about-section">
         <div className="about-section__img-box">
           <Image
-            src={"/Orisun3.png"}
+            src={"/Orisun2.png"}
             alt="Orisun"
             fill
             sizes="(max-width: 763px) 100vw, (max-width: 1200px) 50vw, 33vw"

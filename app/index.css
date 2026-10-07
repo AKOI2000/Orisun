@@ -1577,8 +1577,9 @@ h1 {
 .about-section {
   display: grid;
   min-height: 55rem;
-  background-color: var(--foreground);
-  color: var(--whiter-smoke);
+  background-color: var(--background);
+  color: var(--foreground);
+  border: 0.5px solid var(--foreground);
   border-radius: 1.2rem;
   overflow: hidden;
   grid-template-rows: 1fr;
@@ -1613,9 +1614,10 @@ h1 {
 }
 .about-section__img-box {
   position: relative;
+  background-color: var(--foreground);
 }
 .about-section__img-box img {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .thought-card {

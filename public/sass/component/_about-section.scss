@@ -5,8 +5,9 @@
   //   position: relative;
   display: grid;
   min-height: 55rem;
-  background-color: var(--foreground);
-  color: var(--whiter-smoke);
+  background-color: var(--background);
+  color: var(--foreground);
+  border: .5px solid var(--foreground);
   border-radius: 1.2rem;
   overflow: hidden;
   grid-template-rows: 1fr;
@@ -44,12 +45,13 @@
 
   &__img-box {
     position: relative;
+    background-color: var(--foreground);
 
     @include respond(mds) {
     }
 
     img {
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 }

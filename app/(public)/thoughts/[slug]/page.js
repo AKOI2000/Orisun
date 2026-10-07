@@ -10,7 +10,41 @@ import CommentForm from "@/app/_components/CommentForm";
 import MorePost from "@/app/_components/MorePost";
 import Image from "next/image";
 
-// ...generateMetadata and generateStaticParams unchanged...
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+
+  if (!post || !post.published) {
+    return {
+      title: "Thought Not Found | Orisun",
+    };
+  }
+
+  return {
+    title: `${post.title} | Orisun`,
+    description: post.excerpt || "A thought from Orisun.",
+    alternates: {
+      canonical: `/thoughts/${post.slug}`,
+    },
+    openGraph: {
+      title: `${post.title} | Orisun`,
+      description: post.excerpt || "A thought from Orisun.",
+      url: `/thoughts/${post.slug}`,
+      images: post.coverImage ? [{ url: post.coverImage, width: 1200, height: 630, alt: post.title }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} | Orisun`,
+      description: post.excerpt || "A thought from Orisun.",
+      images: post.coverImage ? [post.coverImage] : undefined,
+    },
+  };
+}
 
 export default async function ThoughtPage({ params }) {
   const { slug } = await params;
