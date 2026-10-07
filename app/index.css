@@ -920,6 +920,7 @@ h1 {
 
 .thought-block--paragraph {
   margin-bottom: 2.4rem;
+  line-height: 2;
 }
 .thought-block--quote {
   margin: 4rem auto;
